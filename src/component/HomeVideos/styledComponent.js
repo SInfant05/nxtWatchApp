@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeVideosContainer = styled.div`
   padding: 24px;
-  background: "transparent";
+  background: 'transparent';
   min-height: 100vh;
-`;
+`
 
 export const SearchInput = styled.input`
   width: 320px;
@@ -15,7 +15,7 @@ export const SearchInput = styled.input`
   margin-bottom: 24px;
   outline: none;
   background-color: transparent;
-`;
+`
 
 export const VideosList = styled.ul`
   list-style: none;
@@ -24,4 +24,4 @@ export const VideosList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-`;
+`

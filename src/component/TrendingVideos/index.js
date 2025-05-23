@@ -1,50 +1,51 @@
-import { Component } from "react";
-import Cookies from "js-cookie";
-import Loader from "../Loader";
-import TrendingVideoItem from "../TrendingVideoItem";
-import FailureView from "../FailureView";
-import { HiFire } from "react-icons/hi";
+import {Component} from 'react'
+import Cookies from 'js-cookie'
+import {HiFire} from 'react-icons/hi'
+import LoaderComponent from '../Loader'
+import TrendingVideoItem from '../TrendingVideoItem'
+import FailureView from '../FailureView'
+
 import {
   TrendingVideosContainer,
   TrendingTitleContainer,
   TrendingIcon,
   TrendingTitle,
-  TrendingVideosList
-} from "./styledComponent";
+  TrendingVideosList,
+} from './styledComponent'
 
 const apiStatueConstants = {
-  inprogress: "IN_PROGRESS",
-  success: "SUCCESS",
-  failure: "FAILURE",
-};
+  inprogress: 'IN_PROGRESS',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+}
 
 class TrendingVideos extends Component {
   state = {
     videosList: [],
     apiStatus: apiStatueConstants.inprogress,
-  };
+  }
 
   componentDidMount() {
-    this.getdata();
+    this.getdata()
   }
 
   getdata = async () => {
-    this.setState({ apiStatus: apiStatueConstants.inprogress });
-    const jwtToken = Cookies.get("jwt_token");
+    this.setState({apiStatus: apiStatueConstants.inprogress})
+    const jwtToken = Cookies.get('jwt_token')
     const options = {
-      method: "GET",
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${jwtToken}`,
       },
-    };
+    }
     const response = await fetch(
       `https://apis.ccbp.in/videos/trending`,
-      options
-    );
+      options,
+    )
 
     if (response.ok) {
-      const data = await response.json();
-      const updatedData = data.videos.map((video) => ({
+      const data = await response.json()
+      const updatedData = data.videos.map(video => ({
         id: video.id,
         title: video.title,
         thumbnailUrl: video.thumbnail_url,
@@ -54,41 +55,38 @@ class TrendingVideos extends Component {
         },
         viewCount: video.view_count,
         publishedAt: video.published_at,
-      }));
+      }))
       this.setState({
         videosList: updatedData,
         apiStatus: apiStatueConstants.success,
-      });
+      })
     } else {
-      this.setState({ apiStatus: apiStatueConstants.failure });
+      this.setState({apiStatus: apiStatueConstants.failure})
     }
-  };
+  }
 
   successView = () => {
-    const { videosList } = this.state;
+    const {videosList} = this.state
     return (
       <TrendingVideosList>
-        {videosList.map((video) => (
-          <TrendingVideoItem
-            key={video.id}
-            {...video}
-          />
+        {videosList.map(video => (
+          <TrendingVideoItem key={video.id} {...video} />
         ))}
       </TrendingVideosList>
-    );
+    )
   }
 
   renderVideos = () => {
-    const { apiStatus } = this.state;
+    const {apiStatus} = this.state
     switch (apiStatus) {
       case apiStatueConstants.success:
-        return this.successView();
+        return this.successView()
       case apiStatueConstants.inprogress:
-        return <Loader />;
+        return <LoaderComponent />
       case apiStatueConstants.failure:
-        return <FailureView retry={this.getdata} />;
+        return <FailureView retry={this.getdata} />
       default:
-        return null;
+        return null
     }
   }
 
@@ -103,7 +101,7 @@ class TrendingVideos extends Component {
         </TrendingTitleContainer>
         {this.renderVideos()}
       </TrendingVideosContainer>
-    );
+    )
   }
 }
-export default TrendingVideos;
+export default TrendingVideos

@@ -1,33 +1,29 @@
-import { Component } from "react";
-import ThemeContext from "../Contexts/ThemeContext";
-
-import TrendingVideoItem from "../TrendingVideoItem";
-
-import { MdOutlinePlaylistAdd } from "react-icons/md";
-import NoSavedVideos from "../NoSavedVideos";
+import {Component} from 'react'
+import {MdOutlinePlaylistAdd} from 'react-icons/md'
+import TrendingVideoItem from '../TrendingVideoItem'
+import NoSavedVideos from '../NoSavedVideos'
+import ThemeContext from '../Contexts/ThemeContext'
 import {
   TrendingVideosContainer,
   TrendingTitleContainer,
   TrendingIcon,
   TrendingTitle,
   TrendingVideosList,
-} from "./styledComponent";
+} from './styledComponent'
 
 class SavedVideos extends Component {
-  successView = (videosList) => {
-    return (
-      <TrendingVideosList>
-        {videosList.map((video) => (
-          <TrendingVideoItem key={video.id} {...video} />
-        ))}
-      </TrendingVideosList>
-    );
-  };
+  successView = videosList => (
+    <TrendingVideosList>
+      {videosList.map(video => (
+        <TrendingVideoItem key={video.id} {...video} />
+      ))}
+    </TrendingVideosList>
+  )
 
   render() {
     return (
       <ThemeContext.Consumer>
-        {({ isDarkTheme, savedVideos }) => (
+        {({isDarkTheme, savedVideos}) => (
           <TrendingVideosContainer $isDarkTheme={isDarkTheme}>
             <TrendingTitleContainer $isDarkTheme={isDarkTheme}>
               <TrendingIcon>
@@ -45,7 +41,7 @@ class SavedVideos extends Component {
           </TrendingVideosContainer>
         )}
       </ThemeContext.Consumer>
-    );
+    )
   }
 }
-export default SavedVideos;
+export default SavedVideos

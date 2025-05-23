@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+import {formatDistanceToNow} from 'date-fns'
 import {
   VideoItemContainer,
   VideoThumbnail,
@@ -7,11 +9,11 @@ import {
   VideoTitle,
   ChannelName,
   VideoMeta,
-} from "./styledComponent";
-import "./index.css";
-import { Link } from "react-router-dom";
-import ThemeContext from "../Contexts/ThemeContext";
-import { formatDistanceToNow } from "date-fns";
+} from './styledComponent'
+import './index.css'
+
+import ThemeContext from '../Contexts/ThemeContext'
+
 const VideoItem = ({
   id,
   thumbnailUrl,
@@ -21,14 +23,14 @@ const VideoItem = ({
   publishedAt,
 }) => (
   <ThemeContext.Consumer>
-    {({ isDarkTheme }) => {
-      let formattedDate = "";
+    {({isDarkTheme}) => {
+      let formattedDate = ''
       if (publishedAt) {
-        const publishedAtDate = new Date(publishedAt);
-        if (!isNaN(publishedAtDate)) {
+        const publishedAtDate = new Date(publishedAt)
+        if (!Number.isNaN(publishedAtDate)) {
           formattedDate = formatDistanceToNow(publishedAtDate, {
             addSuffix: true,
-          }).replace(/^(about|over)\s/, "");
+          }).replace(/^(about|over)\s/, '')
         }
       }
       return (
@@ -49,8 +51,8 @@ const VideoItem = ({
             </VideoDetails>
           </Link>
         </VideoItemContainer>
-      );
+      )
     }}
   </ThemeContext.Consumer>
-);
-export default VideoItem;
+)
+export default VideoItem

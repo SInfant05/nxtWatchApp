@@ -1,14 +1,13 @@
-import Cookies from "js-cookie";
-import { Route ,Redirect} from "react-router-dom";
+import Cookies from 'js-cookie'
+import {Route, Redirect} from 'react-router-dom'
 
-const ProtectedRoute = (props) => {
-  const jwtToken = Cookies.get("jwt_token");
+const ProtectedRoute = props => {
+  const jwtToken = Cookies.get('jwt_token')
 
   if (jwtToken === undefined) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/login" />
   }
 
-  return <Route {...props} />;
+  return <Route {...props} />
 }
-export default ProtectedRoute;
-
+export default ProtectedRoute

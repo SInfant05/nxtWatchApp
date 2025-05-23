@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+import {formatDistanceToNow} from 'date-fns'
 import {
   TrendingVideoItemContainer,
   TrendingThumbnail,
@@ -6,10 +8,9 @@ import {
   TrendingChannelName,
   TrendingMetaInfo,
   TrendinglistItem,
-} from "./styledComponent";
-import { Link } from "react-router-dom";
-import ThemeContext from "../Contexts/ThemeContext";
-import { formatDistanceToNow } from "date-fns";
+} from './styledComponent'
+
+import ThemeContext from '../Contexts/ThemeContext'
 
 const TrendingVideoItem = ({
   id,
@@ -20,14 +21,14 @@ const TrendingVideoItem = ({
   publishedAt,
 }) => (
   <ThemeContext.Consumer>
-    {({ isDarkTheme }) => {
-      let formattedDate = "";
+    {({isDarkTheme}) => {
+      let formattedDate = ''
       if (publishedAt) {
-        const publishedAtDate = new Date(publishedAt);
-        if (!isNaN(publishedAtDate)) {
+        const publishedAtDate = new Date(publishedAt)
+        if (!Number.isNaN(publishedAtDate)) {
           formattedDate = formatDistanceToNow(publishedAtDate, {
             addSuffix: true,
-          }).replace(/^(about|over)\s/, "");
+          }).replace(/^(about|over)\s/, '')
         }
       }
       return (
@@ -49,8 +50,8 @@ const TrendingVideoItem = ({
             </TrendingVideoItemContainer>
           </Link>
         </TrendinglistItem>
-      );
+      )
     }}
   </ThemeContext.Consumer>
-);
-export default TrendingVideoItem;
+)
+export default TrendingVideoItem

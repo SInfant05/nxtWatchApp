@@ -1,10 +1,10 @@
-import "./index.css";
-import { IoMdHome } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { HiFire } from "react-icons/hi";
-import { SiYoutubegaming } from "react-icons/si";
-import { MdOutlinePlaylistAdd } from "react-icons/md";
-import ThemeContext from "../Contexts/ThemeContext";
+import './index.css'
+import {IoMdHome} from 'react-icons/io'
+import {Link} from 'react-router-dom'
+import {HiFire} from 'react-icons/hi'
+import {SiYoutubegaming} from 'react-icons/si'
+import {MdOutlinePlaylistAdd} from 'react-icons/md'
+import ThemeContext from '../Contexts/ThemeContext'
 
 import {
   MenuContainer,
@@ -15,28 +15,28 @@ import {
   SocialIcon,
   MenuDescription,
   ContactContainer,
-} from "./styledComponent";
+} from './styledComponent'
 
 const Menu = () => (
   <ThemeContext.Consumer>
-    {(value) => {
-      const { isDarkTheme, selectedMenu, setSelectedMenu } = value;
+    {value => {
+      const {isDarkTheme, selectedMenu, setSelectedMenu} = value
       const selectedHome = () => {
-        setSelectedMenu("HOME");
-      };
+        setSelectedMenu('HOME')
+      }
 
       const selectedTrending = () => {
-        setSelectedMenu("TRENDING");
-      };
+        setSelectedMenu('TRENDING')
+      }
 
       const selectedGaming = () => {
-        setSelectedMenu("GAMING");
-      };
+        setSelectedMenu('GAMING')
+      }
       const selectedSavedVideos = () => {
-        setSelectedMenu("SAVED_VIDEOS");
-      };
+        setSelectedMenu('SAVED_VIDEOS')
+      }
 
-      const menuIconColor = isDarkTheme ? "#ffffff" : "#000000";
+      const menuIconColor = isDarkTheme ? '#ffffff' : '#000000'
 
       return (
         <MenuContainer $isdarktheme={isDarkTheme}>
@@ -45,16 +45,12 @@ const Menu = () => (
               <Link to="/" className="nav-link">
                 <MenuButton
                   onClick={selectedHome}
-                  $isactive={selectedMenu === "HOME"}
+                  $isactive={selectedMenu === 'HOME'}
                   $isdarktheme={isDarkTheme}
                 >
-                  {
-                    <IoMdHome
-                      color={
-                        selectedMenu === "HOME" ? "#ff031c" : menuIconColor
-                      }
-                    />
-                  }
+                  <IoMdHome
+                    color={selectedMenu === 'HOME' ? '#ff031c' : menuIconColor}
+                  />
                   Home
                 </MenuButton>
               </Link>
@@ -62,14 +58,13 @@ const Menu = () => (
             <li>
               <Link to="/trending" className="nav-link">
                 <MenuButton
-                  
                   onClick={selectedTrending}
-                  $isactive={selectedMenu === "TRENDING"}
+                  $isactive={selectedMenu === 'TRENDING'}
                   $isdarktheme={isDarkTheme}
                 >
                   <HiFire
                     color={
-                      selectedMenu === "TRENDING" ? "#ff031c" : menuIconColor
+                      selectedMenu === 'TRENDING' ? '#ff031c' : menuIconColor
                     }
                   />
                   Trending
@@ -79,14 +74,13 @@ const Menu = () => (
             <li>
               <Link to="/gaming" className="nav-link">
                 <MenuButton
-                  
                   onClick={selectedGaming}
-                  $isactive={selectedMenu === "GAMING"}
+                  $isactive={selectedMenu === 'GAMING'}
                   $isdarktheme={isDarkTheme}
                 >
                   <SiYoutubegaming
                     color={
-                      selectedMenu === "GAMING" ? "#ff031c" : menuIconColor
+                      selectedMenu === 'GAMING' ? '#ff031c' : menuIconColor
                     }
                   />
                   Gaming
@@ -96,15 +90,14 @@ const Menu = () => (
             <li>
               <Link to="/saved-videos" className="nav-link">
                 <MenuButton
-                  
                   onClick={selectedSavedVideos}
-                  $isactive={selectedMenu === "SAVED_VIDEOS"}
+                  $isactive={selectedMenu === 'SAVED_VIDEOS'}
                   $isdarktheme={isDarkTheme}
                 >
                   <MdOutlinePlaylistAdd
                     color={
-                      selectedMenu === "SAVED_VIDEOS"
-                        ? "#ff031c"
+                      selectedMenu === 'SAVED_VIDEOS'
+                        ? '#ff031c'
                         : menuIconColor
                     }
                   />
@@ -140,8 +133,9 @@ const Menu = () => (
             </MenuDescription>
           </ContactContainer>
         </MenuContainer>
-      );
+      )
     }}
   </ThemeContext.Consumer>
-);
-export default Menu;
+)
+
+export default Menu

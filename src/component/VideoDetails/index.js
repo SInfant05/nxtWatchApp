@@ -1,19 +1,19 @@
-import { Component } from "react";
-import Header from "../Header";
-import Menu from "../Menu";
-import VideoDetailsItem from "../VideoItemDetails";
-import ThemeContext from "../Contexts/ThemeContext";
+import {Component} from 'react'
+import Header from '../Header'
+import Menu from '../Menu'
+import VideoDetailsItem from '../VideoItemDetails'
+import ThemeContext from '../Contexts/ThemeContext'
 
-import { HomeContainer, ContentContainer, HomeItems } from "./styledComponent";
+import {HomeContainer, ContentContainer, HomeItems} from './styledComponent'
 
 class VideoDetails extends Component {
   render() {
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
     return (
       <ThemeContext.Consumer>
-        {({ isDarkTheme }) => (
+        {({isDarkTheme}) => (
           <HomeContainer $isDarkTheme={isDarkTheme}>
             <Header />
             <ContentContainer>
@@ -25,7 +25,7 @@ class VideoDetails extends Component {
           </HomeContainer>
         )}
       </ThemeContext.Consumer>
-    );
+    )
   }
 }
-export default VideoDetails;
+export default VideoDetails

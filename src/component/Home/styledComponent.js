@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   display: flex;
@@ -6,10 +6,10 @@ export const HomeContainer = styled.div`
   //   align-items: center;
   justify-content: center;
   //   padding: 24px;
-  background-color: ${({ $bgcolor }) => $bgcolor};
+  background-color: ${({$bgcolor}) => $bgcolor};
 
   min-height: 100vh;
-`;
+`
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
   // padding: 16px;
   gap: 16px;
-`;
+`
 
 export const HomeItems = styled.div`
   flex: 1;
@@ -28,4 +28,4 @@ export const HomeItems = styled.div`
   gap: 24px;
 
   // padding: 24px 0;
-`;
+`

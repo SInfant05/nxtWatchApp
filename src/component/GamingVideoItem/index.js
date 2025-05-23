@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {
   GamingVideoItemContainer,
   GamingThumbnailContainer,
@@ -6,14 +7,14 @@ import {
   GamingTitle,
   GamingMetaInfo,
   GaminglistItem,
-} from "./styledComponent";
-import { Link } from "react-router-dom";
-import "./index.css";
-import ThemeContext from "../Contexts/ThemeContext";
+} from './styledComponent'
 
-const GamingVideoItem = ({ id, title, thumbnailUrl, viewCount }) => (
+import './index.css'
+import ThemeContext from '../Contexts/ThemeContext'
+
+const GamingVideoItem = ({id, title, thumbnailUrl, viewCount}) => (
   <ThemeContext.Consumer>
-    {({ isDarkTheme }) => (
+    {({isDarkTheme}) => (
       <GaminglistItem>
         <Link to={`/videos/${id}`} className="nav-link">
           <GamingVideoItemContainer $isDarkTheme={isDarkTheme}>
@@ -34,6 +35,6 @@ const GamingVideoItem = ({ id, title, thumbnailUrl, viewCount }) => (
       </GaminglistItem>
     )}
   </ThemeContext.Consumer>
-);
+)
 
-export default GamingVideoItem;
+export default GamingVideoItem

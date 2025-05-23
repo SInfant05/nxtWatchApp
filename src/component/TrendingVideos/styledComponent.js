@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const TrendingVideosContainer = styled.div`
-  background: "transparent";
+  background: 'transparent';
   min-height: 100vh;
   padding: 32px 0;
-`;
+`
 
 export const TrendingTitleContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ export const TrendingTitleContainer = styled.div`
   padding: 24px 32px;
   border-radius: 8px;
   margin-bottom: 32px;
-`;
+`
 
 export const TrendingIcon = styled.p`
   background: #e1e9f0;
@@ -27,16 +27,16 @@ export const TrendingIcon = styled.p`
   justify-content: center;
   font-size: 28px;
   margin: 0;
-`;
+`
 
 export const TrendingTitle = styled.h1`
   font-size: 28px;
   color: #1e293b;
   margin: 0;
-`;
+`
 
 export const TrendingVideosList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-`;
+`

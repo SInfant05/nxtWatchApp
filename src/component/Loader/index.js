@@ -1,19 +1,20 @@
-import { ThreeDots } from "react-loader-spinner";
-import { LoaderContainer } from "./styledComponent";
-import ThemeContext from "../Contexts/ThemeContext";
+import Loader from 'react-loader-spinner'
+import LoaderContainer from './styledComponent'
+import ThemeContext from '../Contexts/ThemeContext'
 
-const Loader = () => (
+const LoaderComponent = () => (
   <ThemeContext.Consumer>
-    {({ isDarkTheme }) => (
+    {({isDarkTheme}) => (
       <LoaderContainer $isDarkTheme={isDarkTheme} data-testid="loader">
-        <ThreeDots
-          color={isDarkTheme ? "#ffffff" : "#00BFFF"}
+        <Loader
+          type="ThreeDots"
+          color={isDarkTheme ? '#ffffff' : '#00BFFF'}
           height={80}
           width={80}
         />
       </LoaderContainer>
     )}
   </ThemeContext.Consumer>
-);
+)
 
-export default Loader;
+export default LoaderComponent

@@ -80,7 +80,7 @@ const PlayVideoView = props => {
                     onClick={onClickLike}
                   >
                     <AiOutlineLike size={25} />
-                    <ButtonText>Like</ButtonText>
+                    <ButtonText color={likeIconColor}>Like</ButtonText>
                   </SocialButton>
                 </BtnContainer>
                 <BtnContainer>
@@ -90,7 +90,7 @@ const PlayVideoView = props => {
                     onClick={onClickDislike}
                   >
                     <AiOutlineDislike size={25} />
-                    <ButtonText>Dislike</ButtonText>
+                    <ButtonText color={dislikeIconColor}>Dislike</ButtonText>
                   </SocialButton>
                 </BtnContainer>
                 <BtnContainer>
